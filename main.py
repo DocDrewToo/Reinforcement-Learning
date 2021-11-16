@@ -2,6 +2,9 @@ import random
 
 gamma = 0.9
 epsilon = 0.1
+chance_to_drift_right = 0.1
+chance_to_drift_left = 0.1
+
 total_visits_table = {}
 
 q_value_table = {}
@@ -89,13 +92,81 @@ def calculate_q_value(current_position, current_direction, future_position, futu
                          max_future_q_value - current_state_q)
     return gamma_probability
 
+def headed_this_way_to_the_left_is(direction):
+    to_the_left_is = direction
+    if direction == "NORTH":
+        to_the_left_is = "WEST"
+    elif direction == "EAST":
+        to_the_left_is = "NORTH"
+    elif direction == "SOUTH":
+        to_the_left_is = "EAST"
+    elif direction == "WEST":
+        to_the_left_is = "SOUTH"
 
-def adjust_position_for_drift():
-    return ""
+    return to_the_left_is
+
+def headed_this_way_to_the_right_is(direction):
+    to_the_right_is = direction
+    if direction == "NORTH":
+        to_the_right_is = "EAST"
+    elif direction == "EAST":
+        to_the_right_is = "SOUTH"
+    elif direction == "SOUTH":
+        to_the_right_is = "WEST"
+    elif direction == "WEST":
+        to_the_right_is = "NORTH"
+
+    return to_the_right_is
+
+def next_position_with_drift(position_in_maze, direction):
+    next_position = position_in_maze
+    # if random.random() <= chance_to_drift_right:
+    #     next_position = left_from_here()
+    # if random.random() >= 1 - chance_to_drift_left:
+    #     next_position = right_from_here()
+
+    #Position has the format of letters for columns and numnbers for rows
+    # i.e. A3 is row A column 3.
+    characters_in_position_location = []
+    for character in position_in_maze:
+        characters_in_position_location.append(character)
+    
+    current_row = characters_in_position_location[0]
+    current_column = characters_in_position_location[1]
+
+    new_row = current_row
+    new_column = int(current_column)
+    if direction == "NORTH":
+        # ok, this magic of chr and ord, converts letters to numbers
+        # perform mathc, then converts back to a letter
+        new_row = chr(ord(current_row[0]) - 1)
+        new_column = current_column
+    elif direction == "SOUTH":
+        new_row = chr(ord(current_row[0]) + 1)
+        new_column = current_column
+    elif direction == "EAST":
+        new_row = current_row
+        new_column = int(current_column) + 1
+    elif direction == "WEST":
+        new_row = current_row
+        new_column = int(current_column) - 1
+    
+    next_position = new_row+str(new_column)
+    
+    if initial_rewards_table.get(next_position) == "WALL":
+        next_position = position_in_maze
+    
+    if initial_rewards_table.get(next_position) == -50:
+        next_position = "EXIT"
+
+    if initial_rewards_table.get(next_position) == 100:
+        next_position = "EXIT"
+
+    return next_position
 
 
 if __name__ == "__main__":
-    starting_position = starting_position()
-    next_best_position = best_direction_to_move(starting_position)
-    next_actual_position = adjust_position_for_drift()
-
+    # current_position = starting_position()
+    # direction_to_move = best_direction_to_move(starting_position)
+    # next_position = next_position_with_drift(current_position, direction_to_move)
+    print("Hello")

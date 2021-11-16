@@ -46,6 +46,131 @@ class MainTests(unittest.TestCase):
 
         self.assertEqual(expected_q_value, actual_q_value)
 
+    def test_c3_heading_north_with_zero_drift_is_b3(self):
+        position = "C3"
+        direction = "NORTH"
+        expected_next_maze_position = "B3"
+        main.chance_to_drift_right = 0
+        main.chance_to_drift_left = 0
+
+        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
+
+    def test_c3_heading_east_with_zero_drift_is_c4(self):
+        position = "C3"
+        direction = "EAST"
+        expected_next_maze_position = "C4"
+        main.chance_to_drift_right = 0
+        main.chance_to_drift_left = 0
+
+        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
+
+    def test_c3_heading_south_with_zero_drift_is_d3(self):
+        position = "C3"
+        direction = "SOUTH"
+        expected_next_maze_position = "D3"
+        main.chance_to_drift_right = 0
+        main.chance_to_drift_left = 0
+        
+        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
+
+    def test_c4_heading_west_with_zero_drift_is_c3(self):
+        position = "C4"
+        direction = "WEST"
+        expected_next_maze_position = "C3"
+        main.chance_to_drift_right = 0
+        main.chance_to_drift_left = 0
+        
+        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
+
+    def test_c3_heading_west_with_zero_drift_hits_wall_is_c3(self):
+        position = "C3"
+        direction = "WEST"
+        expected_next_maze_position = "C3"
+        main.chance_to_drift_right = 0
+        main.chance_to_drift_left = 0
+        
+        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
+
+    def test_b2_heading_west_with_zero_drift_hits_terminal_state_exits(self):
+        position = "B2"
+        direction = "WEST"
+        expected_next_maze_position = "EXIT"
+        main.chance_to_drift_right = 0
+        main.chance_to_drift_left = 0
+        
+        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
+        
+    def test_d3_heading_east_with_zero_drift_hits_terminal_state_exits(self):
+        position = "D3"
+        direction = "EAST"
+        expected_next_maze_position = "EXIT"
+        main.chance_to_drift_right = 0
+        main.chance_to_drift_left = 0
+        
+        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
+
+    def test_heading_north_to_the_left_is_west(self):
+        direction = "NORTH"
+        expected_direction_to_the_left = "WEST"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_left_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_heading_south_to_the_left_is_east(self):
+        direction = "SOUTH"
+        expected_direction_to_the_left = "EAST"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_left_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_heading_east_to_the_left_is_north(self):
+        direction = "EAST"
+        expected_direction_to_the_left = "NORTH"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_left_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_heading_west_to_the_left_is_south(self):
+        direction = "WEST"
+        expected_direction_to_the_left = "SOUTH"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_left_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_heading_north_to_the_right_is_east(self):
+        direction = "NORTH"
+        expected_direction_to_the_left = "EAST"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_right_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_heading_south_to_the_right_is_west(self):
+        direction = "SOUTH"
+        expected_direction_to_the_left = "WEST"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_right_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_heading_east_to_the_right_is_south(self):
+        direction = "EAST"
+        expected_direction_to_the_left = "SOUTH"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_right_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_heading_west_to_the_right_is_north(self):
+        direction = "WEST"
+        expected_direction_to_the_left = "NORTH"
+
+        actual_direction_to_the_left = main.headed_this_way_to_the_right_is(direction)
+        self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
 
 if __name__ == '__main__':
     unittest.main()
