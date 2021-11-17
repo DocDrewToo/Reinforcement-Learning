@@ -424,4 +424,6 @@ mylabel40.grid(row=5, column=4)
 mylabel41.grid(row=5, column=5)
 mylabel42.grid(row=5, column=6)
 
+
+
 visual_maze.mainloop()
