@@ -296,9 +296,8 @@ if __name__ == "__main__":
 
             # Check if next position is a terminal state
             if initial_rewards_table.get(next_position) == -50 or \
-            initial_rewards_table.get(next_position) == 100 or \
-            moves_per_trial >= 100 :
-
+               initial_rewards_table.get(next_position) == 100 or \
+               moves_per_trial >= 100 :
                 CONTINUE_TRIAL = False
             else:
                 current_position = next_position
