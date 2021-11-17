@@ -35,14 +35,13 @@ class MainTests(unittest.TestCase):
         current_position = "B2"
         current_direction = "EAST"
         future_position = "B3"
-        future_direction = "SOUTH"
         main.total_visits_table["B2"] = {"NORTH": 0, "SOUTH": 0, "EAST": 9, "WEST": 0}
         main.q_value_table["B2"] = {"NORTH": 0, "SOUTH": 0, "EAST": 5, "WEST": 0}
         main.q_value_table["B3"] = {"NORTH": 2, "SOUTH": 50, "EAST": 5, "WEST": 2}
 
         expected_q_value = 8.8
         actual_q_value = main.calculate_q_value(current_position,
-                                                current_direction, future_position, future_direction)
+                                                current_direction, future_position)
 
         self.assertEqual(expected_q_value, actual_q_value)
 
@@ -53,7 +52,7 @@ class MainTests(unittest.TestCase):
         main.chance_to_drift_right = 0
         main.chance_to_drift_left = 0
 
-        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        actual_next_maze_position = main.get_next_position(position, direction)
         self.assertEqual(expected_next_maze_position, actual_next_maze_position)
 
     def test_c3_heading_east_with_zero_drift_is_c4(self):
@@ -63,7 +62,7 @@ class MainTests(unittest.TestCase):
         main.chance_to_drift_right = 0
         main.chance_to_drift_left = 0
 
-        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        actual_next_maze_position = main.get_next_position(position, direction)
         self.assertEqual(expected_next_maze_position, actual_next_maze_position)
 
     def test_c3_heading_south_with_zero_drift_is_d3(self):
@@ -73,7 +72,7 @@ class MainTests(unittest.TestCase):
         main.chance_to_drift_right = 0
         main.chance_to_drift_left = 0
         
-        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        actual_next_maze_position = main.get_next_position(position, direction)
         self.assertEqual(expected_next_maze_position, actual_next_maze_position)
 
     def test_c4_heading_west_with_zero_drift_is_c3(self):
@@ -83,7 +82,7 @@ class MainTests(unittest.TestCase):
         main.chance_to_drift_right = 0
         main.chance_to_drift_left = 0
         
-        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        actual_next_maze_position = main.get_next_position(position, direction)
         self.assertEqual(expected_next_maze_position, actual_next_maze_position)
 
     def test_c3_heading_west_with_zero_drift_hits_wall_is_c3(self):
@@ -93,27 +92,7 @@ class MainTests(unittest.TestCase):
         main.chance_to_drift_right = 0
         main.chance_to_drift_left = 0
         
-        actual_next_maze_position = main.next_position_with_drift(position, direction)
-        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
-
-    def test_b2_heading_west_with_zero_drift_hits_terminal_state_exits(self):
-        position = "B2"
-        direction = "WEST"
-        expected_next_maze_position = "EXIT"
-        main.chance_to_drift_right = 0
-        main.chance_to_drift_left = 0
-        
-        actual_next_maze_position = main.next_position_with_drift(position, direction)
-        self.assertEqual(expected_next_maze_position, actual_next_maze_position)
-        
-    def test_d3_heading_east_with_zero_drift_hits_terminal_state_exits(self):
-        position = "D3"
-        direction = "EAST"
-        expected_next_maze_position = "EXIT"
-        main.chance_to_drift_right = 0
-        main.chance_to_drift_left = 0
-        
-        actual_next_maze_position = main.next_position_with_drift(position, direction)
+        actual_next_maze_position = main.get_next_position(position, direction)
         self.assertEqual(expected_next_maze_position, actual_next_maze_position)
 
     def test_heading_north_to_the_left_is_west(self):
@@ -171,6 +150,24 @@ class MainTests(unittest.TestCase):
 
         actual_direction_to_the_left = main.headed_this_way_to_the_right_is(direction)
         self.assertEqual(expected_direction_to_the_left, actual_direction_to_the_left)
+
+    def test_update_q_value_correctly_override_previous_value(self):
+        main.q_value_table["B2"] = {"NORTH": 0, "SOUTH": 0, "EAST": 5, "WEST": 0}
+
+        main.update_q_value("B2", "EAST", 10)
+        expected_q_value = 10
+        actual_q_value = main.q_value_table["B2"].get("EAST")
+
+        self.assertEqual(expected_q_value, actual_q_value)
+
+    def test_update_total_visits_correctly_override_previous_value_by_1(self):
+        main.total_visits_table["B2"] = {"NORTH": 0, "SOUTH": 0, "EAST": 5, "WEST": 0}
+
+        main.update_total_times_this_direction("B2", "EAST")
+        expected_q_value = 6
+        actual_q_value = main.total_visits_table["B2"].get("EAST")
+
+        self.assertEqual(expected_q_value, actual_q_value)
 
 if __name__ == '__main__':
     unittest.main()
