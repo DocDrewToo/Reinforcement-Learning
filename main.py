@@ -305,7 +305,7 @@ if __name__ == "__main__":
         print("Ending Position: ", next_position)
         print("___________________")
 
-    print("___________________")
-    print(q_value_table)
-    print("___________________")
-    print(total_visits_table)
+    # print("___________________")
+    # print(q_value_table)
+    # print("___________________")
+    # print(total_visits_table)
