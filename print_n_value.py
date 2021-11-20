@@ -1,9 +1,11 @@
 from tkinter import *
 
+#printing table of total number of visits table
 def print_table(total_visits_table, initial_rewards_table):
     n_value_maze = Tk()
     n_value_maze.title("Windy Maze 'n' Values")
 
+    #setting up n values for tkinter table output
     Total_visits_value_A1 = Label(n_value_maze, text=total_visits_table["A1"]["NORTH"], padx=10, pady=10)
     Total_visits_value_A2 = Label(n_value_maze, text=total_visits_table["A2"]["NORTH"], padx=10, pady=10)
     Total_visits_value_A3 = Label(n_value_maze, text=total_visits_table["A3"]["NORTH"], padx=10, pady=10)
@@ -94,6 +96,7 @@ def print_table(total_visits_table, initial_rewards_table):
     Total_visits_value_F6 = Label(n_value_maze, text=total_visits_table["F6"]["NORTH"], padx=10, pady=10)
     Total_visits_value_F7 = Label(n_value_maze, text=total_visits_table["F7"]["NORTH"], padx=10, pady=10)
 
+    #Placing total 'n' values in tkinter grid output
     Total_visits_value_A1.grid(row=1, column=2)
     Total_visits_value_A2.grid(row=1, column=5)
     Total_visits_value_A3.grid(row=1, column=8)
