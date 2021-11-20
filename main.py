@@ -5,7 +5,7 @@ from print_n_value import print_table as print_n_value_table
 from print_optimal_policy import print_table as print_policy_table
 from print_q_value import print_table as print_q_value_table
 
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+logging.basicConfig(level=os.environ.get("LOGLEVEL", "DEBUG"))
 log = logging.getLogger(__name__)
 
 gamma = 0.9
@@ -58,7 +58,7 @@ def best_direction_to_move(position):
     # Use max q for best direction, unless hit by randomness introduced by epsilon
     if random.random() <= epsilon or max_q_value == 0:
         best_direction = random.choice(directions)
-        log.debug("   Random direction triggered! (epsilon or zero q value)", best_direction)
+        log.debug("   Random direction triggered! (epsilon or zero q value)%s ", best_direction)
         return best_direction
 
     # Translate the numeric value of max q position to an actual direction (N,S,E,W)
@@ -70,6 +70,7 @@ def best_direction_to_move(position):
     # Now that we have the index of the max_q value, it's the same as the index
     # of the list of direction. Return the direction as a string.
     best_direction = directions_at_position_list[index_of_max_q_value]
+    log.debug("   Best direction to head: %s ", best_direction)
 
     return best_direction
 
@@ -169,11 +170,11 @@ def chance_for_direction_changed_by_drift(direction):
     random_number = random.random()
     if random_number <= chance_to_drift_right:
         next_direction = headed_this_way_to_the_left_is(direction)
-        log.debug("   Got Struck by drif to the RIGHT, wanted to go,", direction, "Ended up going,", next_direction)
+        log.debug("   Got Struck by drif to the RIGHT, now heading: %s", next_direction)
     # With a 10% chance to drift right, translated to 0.9 -> 1.0 from random # generator
     if random_number >= 1 - chance_to_drift_left:
         next_direction = headed_this_way_to_the_right_is(direction)
-        log.debug("   Got Struck by drif to the LEFT, wanted to go,", direction, "Ended up going,", next_direction)
+        log.debug("   Got Struck by drif to the LEFT, now heading %s", next_direction)
 
     # Return origonal direction if we weren't struck by 20% randomness
     return next_direction
@@ -225,19 +226,19 @@ if __name__ == "__main__":
     preload_q_value_table()
 
     # TODO Loop 50,000 times:...
-    for total_maze_runs in range(1, 50000):
-        log.debug("Starting Trail:", total_maze_runs)
+    for total_maze_runs in range(1, 10):
+        log.debug("Starting Trail: %s", total_maze_runs)
         CONTINUE_TRIAL = True
         moves_per_trial = 0
         current_position = starting_position()
 
         while CONTINUE_TRIAL:
-            log.debug("Current Position: ", current_position)
+            log.debug("Current Position: %s", current_position)
 
             direction_to_move = best_direction_to_move(current_position)
             direction_to_move = chance_for_direction_changed_by_drift(direction_to_move)
 
-            log.debug("Moving: ", direction_to_move)
+            log.debug("Moving: %s", direction_to_move)
             next_position = get_next_position(current_position, direction_to_move)
 
             q_value = calculate_q_value(current_position, direction_to_move, next_position)
@@ -254,7 +255,7 @@ if __name__ == "__main__":
             else:
                 current_position = next_position
 
-        log.debug("Ending Position: ", next_position)
+        log.debug("Ending Position: %s", next_position)
         log.debug("___________________")
 
     print_n_value_table(total_visits_table, initial_rewards_table)
