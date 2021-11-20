@@ -45,6 +45,19 @@ class MainTests(unittest.TestCase):
 
         self.assertEqual(expected_q_value, actual_q_value)
 
+    def test_calculated_q_value_when_hitting_a_wall(self):
+        current_position = "B2"
+        current_direction = "EAST"
+        future_position = "B2"
+        main.total_visits_table["B2"] = {"NORTH": 0, "SOUTH": 0, "EAST": 1, "WEST": 0}
+        main.q_value_table["B2"] = {"NORTH": 0, "SOUTH": 0, "EAST": -2, "WEST": 0}
+
+        expected_q_value = -2
+        actual_q_value = main.calculate_q_value(current_position,
+                                                current_direction, future_position)
+
+        self.assertEqual(expected_q_value, actual_q_value)
+
     def test_c3_heading_north_with_zero_drift_is_b3(self):
         position = "C3"
         direction = "NORTH"

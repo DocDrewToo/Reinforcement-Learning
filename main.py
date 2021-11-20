@@ -259,4 +259,3 @@ if __name__ == "__main__":
     print_n_value_table(total_visits_table, initial_rewards_table)
     print_q_value_table(q_value_table, initial_rewards_table)
     print_policy_table(q_value_table)
-    
