@@ -5,7 +5,6 @@ def print_table(total_visits_table, initial_rewards_table):
     n_value_maze.title("Windy Maze 'n' Values")
 
     Total_visits_value_A1 = Label(n_value_maze, text=total_visits_table["A1"]["NORTH"], padx=10, pady=10)
-
     Total_visits_value_A2 = Label(n_value_maze, text=total_visits_table["A2"]["NORTH"], padx=10, pady=10)
     Total_visits_value_A3 = Label(n_value_maze, text=total_visits_table["A3"]["NORTH"], padx=10, pady=10)
     Total_visits_value_A4 = Label(n_value_maze, text=total_visits_table["A4"]["NORTH"], padx=10, pady=10)

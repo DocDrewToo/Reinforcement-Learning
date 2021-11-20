@@ -169,5 +169,104 @@ class MainTests(unittest.TestCase):
 
         self.assertEqual(expected_q_value, actual_q_value)
 
+    def test_preloading_of_total_visits_table(self):
+        expected_total_visits_table = {
+            "A1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "A2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "A3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "A4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "A5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "A6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "A7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "F1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "F2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "F3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "F4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "F5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "F6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "F7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0}
+        }
+        actual_total_visits_table = main.preload_total_visits_table()
+
+        self.assertEqual(expected_total_visits_table, actual_total_visits_table)
+
+    def test_preloading_of_q_value_table(self):
+        expected_q_value_table = {
+            "A1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "A2": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "A3": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "A4": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "A5": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "A6": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "A7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "B1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "B2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "B7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "C1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "C2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "C7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "D1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "D2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D4": {"NORTH": 100, "SOUTH": 100, "EAST": 100, "WEST": 100},
+            "D5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "D7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "E1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "E2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
+            "E7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "F1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "F2": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "F3": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "F4": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "F5": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "F6": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
+            "F7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50}
+        }
+
+        actual_q_value_table = main.preload_q_value_table()
+        self.assertEqual(expected_q_value_table, actual_q_value_table)
+
+
 if __name__ == '__main__':
     unittest.main()

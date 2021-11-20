@@ -14,93 +14,9 @@ chance_to_drift_right = 0.1
 chance_to_drift_left = 0.1
 
 total_visits_table = {
-    "A1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "A2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "A3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "A4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "A5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "A6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "A7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "F1": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "F2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "F3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "F4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "F5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "F6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "F7": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0}
 }
 
 q_value_table = {
-    "A1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "A2": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "A3": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "A4": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "A5": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "A6": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "A7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "B1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "B2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "B7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "C1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "C2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "C7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "D1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "D2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D4": {"NORTH": 100, "SOUTH": 100, "EAST": 100, "WEST": 100},
-    "D5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "D7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "E1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "E2": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E3": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E4": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E5": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E6": {"NORTH": 0, "SOUTH": 0, "EAST": 0, "WEST": 0},
-    "E7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "F1": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "F2": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "F3": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "F4": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "F5": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "F6": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50},
-    "F7": {"NORTH": -50, "SOUTH": -50, "EAST": -50, "WEST": -50}
 }
 
 valid_starting_positions = ("B2", "B3", "B4", "B5",
@@ -283,9 +199,30 @@ def update_total_times_this_direction(position, direction):
     how_many_times_this_direction = total_visits_table.get(position).get(direction)
     total_visits_table[position][direction] = how_many_times_this_direction + 1
 
+def preload_total_visits_table():
+    for position in initial_rewards_table:
+        directional_values = {}
+        for direction in directions:
+            directional_values[direction] = 0
+        total_visits_table[position] = directional_values
+    return total_visits_table
+
+def preload_q_value_table():
+    for position in initial_rewards_table:
+        directional_values = {}
+        for direction in directions:
+            if initial_rewards_table[position] == "WALL":
+                directional_values[direction] = 0
+            else:
+                directional_values[direction] = initial_rewards_table[position]
+        q_value_table[position] = directional_values
+    return q_value_table
+
 
 if __name__ == "__main__":
     log.debug("Into the maze we go...!")
+    preload_total_visits_table()
+    preload_q_value_table()
 
     # TODO Loop 50,000 times:...
     for total_maze_runs in range(1, 50000):
@@ -320,7 +257,6 @@ if __name__ == "__main__":
         log.debug("Ending Position: ", next_position)
         log.debug("___________________")
 
-
-print_n_value_table(total_visits_table, initial_rewards_table)
-print_q_value_table(q_value_table, initial_rewards_table)
-print_policy_table(q_value_table)
+    print_n_value_table(total_visits_table, initial_rewards_table)
+    print_q_value_table(q_value_table, initial_rewards_table)
+    print_policy_table(q_value_table)
