@@ -5,7 +5,7 @@ from print_n_value import print_table as print_n_value_table
 from print_optimal_policy import print_table as print_policy_table
 from print_q_value import print_table as print_q_value_table
 
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "DEBUG"))
+logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 log = logging.getLogger(__name__)
 
 gamma = 0.9
@@ -58,7 +58,8 @@ def best_direction_to_move(position):
     # Use max q for best direction, unless hit by randomness introduced by epsilon
     if random.random() <= epsilon or max_q_value == 0:
         best_direction = random.choice(directions)
-        log.debug("   Random direction triggered! (epsilon or zero q value)%s ", best_direction)
+        log.debug("   Random direction triggered! (epsilon or zero q value) ")
+        log.debug("   Randomily Heading: %s ", best_direction)
         return best_direction
 
     # Translate the numeric value of max q position to an actual direction (N,S,E,W)
@@ -221,12 +222,12 @@ def preload_q_value_table():
 
 
 if __name__ == "__main__":
-    log.debug("Into the maze we go...!")
+    log.info("Into the maze we go...!")
     preload_total_visits_table()
     preload_q_value_table()
 
     # TODO Loop 50,000 times:...
-    for total_maze_runs in range(1, 10):
+    for total_maze_runs in range(1, 50000):
         log.debug("Starting Trail: %s", total_maze_runs)
         CONTINUE_TRIAL = True
         moves_per_trial = 0
