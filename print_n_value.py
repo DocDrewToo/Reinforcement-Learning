@@ -1,3 +1,4 @@
+import os
 from tkinter import *
 
 #printing table of total number of visits table
@@ -188,3 +189,6 @@ def print_table(total_visits_table, initial_rewards_table):
     Total_visits_value_F7.grid(row=16, column=20)
 
     n_value_maze.mainloop()
+
+if __name__ == "__main__":
+    print("Executing program:", os.path.basename(__file__))

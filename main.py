@@ -77,15 +77,13 @@ def best_direction_to_move(position):
 
 
 def get_max_q_value(position):
+    # Load all q values for all directions for a given position into an array
+    # Then take the max value for all directions at that position
     all_directions_at_position = q_value_table.get(position)
 
-    # TODO iterate through directions
-    q_values_all_directions = [
-        all_directions_at_position.get(directions[0]),
-        all_directions_at_position.get(directions[1]),
-        all_directions_at_position.get(directions[2]),
-        all_directions_at_position.get(directions[3])
-    ]
+    q_values_all_directions = []
+    for direction in directions:
+        q_values_all_directions.append(all_directions_at_position.get(direction))
     return max(q_values_all_directions)
 
 
@@ -226,7 +224,6 @@ if __name__ == "__main__":
     preload_total_visits_table()
     preload_q_value_table()
 
-    # TODO Loop 50,000 times:...
     for total_maze_runs in range(1, 50000):
         log.debug("Starting Trail: %s", total_maze_runs)
         CONTINUE_TRIAL = True
@@ -262,3 +259,4 @@ if __name__ == "__main__":
     print_n_value_table(total_visits_table, initial_rewards_table)
     print_q_value_table(q_value_table, initial_rewards_table)
     print_policy_table(q_value_table)
+    

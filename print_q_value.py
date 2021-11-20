@@ -1,4 +1,5 @@
 from tkinter import *
+import os 
 
 #using tkinter to output the 'q' values table
 def print_table(q_value_table, initial_rewards_table):
@@ -188,3 +189,6 @@ def print_table(q_value_table, initial_rewards_table):
     Q_value_F7.grid(row=16, column=20)
 
     visual_maze.mainloop()
+
+if __name__ == "__main__":
+    print("Executing program:", os.path.basename(__file__))

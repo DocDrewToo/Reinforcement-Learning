@@ -1,3 +1,4 @@
+import os
 from tkinter import *
 
 #setting up table output of optimal policy
@@ -251,3 +252,6 @@ def print_table(q_value_table):
     Optimal_policy_value_F7.grid(row=16, column=20)
     # return optimal_policy
     optimal_policy.mainloop()
+
+if __name__ == "__main__":
+    print("Executing program:", os.path.basename(__file__))
