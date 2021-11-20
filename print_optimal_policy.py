@@ -1,10 +1,12 @@
 from tkinter import *
 
+#setting up table output of optimal policy
 def print_table(q_value_table):
         
     optimal_policy =Tk()
     optimal_policy.title('Optimal Policy')
 
+    #finding 'max' value at each location
     optimal_policy_B2 = max(q_value_table["B2"]["NORTH"], q_value_table["B2"]["SOUTH"], q_value_table["B2"]["EAST"], q_value_table["B2"]["WEST"])
     optimal_policy_B3 = max(q_value_table["B3"]["NORTH"], q_value_table["B3"]["SOUTH"], q_value_table["B3"]["EAST"], q_value_table["B3"]["WEST"])
     optimal_policy_B4 = max(q_value_table["B4"]["NORTH"], q_value_table["B4"]["SOUTH"], q_value_table["B4"]["EAST"], q_value_table["B4"]["WEST"])
@@ -20,7 +22,7 @@ def print_table(q_value_table):
     optimal_policy_E5 = max(q_value_table["E5"]["NORTH"], q_value_table["E5"]["SOUTH"], q_value_table["E5"]["EAST"], q_value_table["E5"]["WEST"])
     optimal_policy_E6 = max(q_value_table["E6"]["NORTH"], q_value_table["E6"]["SOUTH"], q_value_table["E6"]["EAST"], q_value_table["E6"]["WEST"])
 
-
+    #printing out the direction arrows based on the 'max' value
     if q_value_table["B2"]["NORTH"] == optimal_policy_B2:
         optimal_policy_B2_direction = "^^^^"
     elif q_value_table["B2"]["SOUTH"] == optimal_policy_B2:
@@ -149,7 +151,8 @@ def print_table(q_value_table):
         optimal_policy_E6_direction = "<<<<"
     else:
         optimal_policy_E6_direction = ">>>>"
-
+    
+    #setting up printing the output of the optimal policy
     Optimal_policy_value_A1 = Label(optimal_policy, text=q_value_table["A1"]["NORTH"], padx=10, pady=10)
     Optimal_policy_value_A2 = Label(optimal_policy, text=q_value_table["A2"]["NORTH"], padx=10, pady=10)
     Optimal_policy_value_A3 = Label(optimal_policy, text=q_value_table["A3"]["NORTH"], padx=10, pady=10)
@@ -198,6 +201,7 @@ def print_table(q_value_table):
     Optimal_policy_value_F6 = Label(optimal_policy, text=q_value_table["F6"]["NORTH"], padx=10, pady=10)
     Optimal_policy_value_F7 = Label(optimal_policy, text=q_value_table["F7"]["NORTH"], padx=10, pady=10)
 
+    #Assigning grid locations for optimal policy
     Optimal_policy_value_A1.grid(row=1, column=2)
     Optimal_policy_value_A2.grid(row=1, column=5)
     Optimal_policy_value_A3.grid(row=1, column=8)

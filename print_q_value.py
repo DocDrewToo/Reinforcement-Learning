@@ -1,10 +1,11 @@
 from tkinter import *
 
+#using tkinter to output the 'q' values table
 def print_table(q_value_table, initial_rewards_table):
     visual_maze = Tk()
     visual_maze.title("Windy Maze Q-Learning Values")
 
-
+    #setting final 'q' values for output
     Q_value_A1 = Label(visual_maze, text=q_value_table["A1"]["NORTH"], padx=10, pady=10)
     Q_value_A2 = Label(visual_maze, text=q_value_table["A2"]["NORTH"], padx=10, pady=10)
     Q_value_A3 = Label(visual_maze, text=q_value_table["A3"]["NORTH"], padx=10, pady=10)
@@ -95,6 +96,7 @@ def print_table(q_value_table, initial_rewards_table):
     Q_value_F6 = Label(visual_maze, text=q_value_table["F6"]["NORTH"], padx=10, pady=10)
     Q_value_F7 = Label(visual_maze, text=q_value_table["F7"]["NORTH"], padx=10, pady=10)
 
+    #setting up 'q' value location in tkinter output
     Q_value_A1.grid(row=1, column=2)
     Q_value_A2.grid(row=1, column=5)
     Q_value_A3.grid(row=1, column=8)
